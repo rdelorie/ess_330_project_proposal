@@ -1,0 +1,39 @@
+---
+title: "EDA-for-proposal"
+format: html
+---
+```{r}
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+
+#Create some visualizations and descriptions of what data you have, where you got it, and how and if you need to clean and manipulate it for your project
+
+parkserve_data <- parkserve_summarized_facts_2020
+un_land_use_data <- un_land_use
+
+parkserve_clean <- parkserve_data %>%  
+filter(row_number() %in% c(2:5, 7:101)) %>%
+  select(-`...6`) %>%
+  rename(
+    City = `Population Density`, 
+    `City Population` = `...2`,
+    `Land Area` = `...3`, 
+    `Revised Area` = `...4`, 
+    Density = `...5`,
+    `Adjusted City Area` = `...7`,
+    `Parkland Area` = `...8`,
+    `Parkland as percent of city area` = `...9`,
+    `Total Acres` = `...10`,
+    `Designed Acres` = `...11`,
+    `Undeveloped Acres` = `...12`, 
+    `Percent Designed` = `...13`, 
+    `Percent Natural` = `...14`, 
+    `Parkland per Thousand Residents` = `...15`, 
+    `Park Units` = `...16`, 
+    `Park Units per ten thousand Residents` = `...17`, 
+    `Percent of Residents within Half-Mile Walk of Park` = `...18`)
+  
+```
+  
+  
